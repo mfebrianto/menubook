@@ -11,7 +11,9 @@ Rails.application.routes.draw do
     resources :food_types do
       post :delete, on: :collection
     end
-    resources :foods
+    resources :foods do
+      post :upload_image, on: :collection
+    end
   end
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
