@@ -14,6 +14,15 @@ class FoodTypesController < ActionController::Base
     end
   end
 
+  def destroy
+    food_type = FoodType.find(params[:id])
+    if food_type.destroy
+      respond_to do |format|
+        format.json { head :ok}
+      end
+    end
+  end
+
   private
 
   def food_type_attributes
