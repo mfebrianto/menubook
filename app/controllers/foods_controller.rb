@@ -1,12 +1,16 @@
 class FoodsController < ActionController::Base
 
-  def upload_image
-    p ">>>>>>>>#{params.inspect}"
-    food_image = Food.new(ActiveSupport::JSON.decode(params["food_image"]))
-    # food_image.save
-    p ">>>>>>>>#{food_image.inspect}"
+  def index
+    respond_to do |format|
+      format.json { render json: Food.all}
+    end
   end
 
+  def upload_image
+    food_image = Food.new(food_image: params[:food_image])
+    food_image.save
+    p ">>>>>>>>#{food_image.inspect}"
+  end
 
   def create
     food = Food.new(food_attributes)
