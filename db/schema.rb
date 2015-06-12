@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150606120732) do
+ActiveRecord::Schema.define(version: 20150612195518) do
 
   create_table "food_types", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -22,11 +22,15 @@ ActiveRecord::Schema.define(version: 20150606120732) do
   end
 
   create_table "foods", force: :cascade do |t|
-    t.string   "name",         limit: 255
-    t.string   "description",  limit: 255
-    t.string   "food_type_id", limit: 255
+    t.string   "name",                    limit: 255
+    t.string   "description",             limit: 255
+    t.string   "food_type_id",            limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "food_image_file_name",    limit: 255
+    t.string   "food_image_content_type", limit: 255
+    t.integer  "food_image_file_size",    limit: 4
+    t.datetime "food_image_updated_at"
   end
 
 end
