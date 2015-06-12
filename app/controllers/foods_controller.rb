@@ -2,9 +2,10 @@ class FoodsController < ActionController::Base
 
   def create
     food = Food.new(food_attributes)
-    food.save
-    respond_to do |format|
-      format.json { render json: food}
+    if food.save
+      respond_to do |format|
+        format.json { render json: food}
+      end
     end
   end
 
