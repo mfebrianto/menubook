@@ -19,4 +19,12 @@ describe FoodsController do
     end
   end
 
+  describe 'delete' do
+    it 'should return with status code' do
+      food = Food.create(name: 'chocolate brownie')
+      post :delete, {format: :json, food: {id: food.id}}
+      expect(response.code).to eq '200'
+    end
+  end
+
 end

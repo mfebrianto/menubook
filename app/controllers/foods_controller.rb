@@ -21,10 +21,23 @@ class FoodsController < ActionController::Base
     end
   end
 
+  def delete
+    food = Food.find(food_id)
+    if food.destroy
+      respond_to do |format|
+        format.json { render json: food}
+      end
+    end
+  end
+
   private
 
   def food_image
     params.permit(:food_image)
+  end
+
+  def food_id
+    params.require(:id)
   end
 
   def food_attributes

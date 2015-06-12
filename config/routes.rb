@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     end
     resources :foods do
       post :upload_image, on: :collection
+      post :delete, on: :collection
     end
   end
 

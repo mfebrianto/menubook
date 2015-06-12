@@ -19,7 +19,7 @@ describe FoodTypesController do
     end
   end
 
-  describe 'destroy' do
+  describe 'delete' do
     it 'should return with status code' do
       food_type = FoodType.create(name: 'brownie')
       post :delete, {format: :json, food_type: {id: food_type.id}}
