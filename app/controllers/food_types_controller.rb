@@ -18,7 +18,7 @@ class FoodTypesController < ActionController::Base
     food_type = FoodType.find(food_type_id[:id])
     if food_type.destroy
       respond_to do |format|
-        format.json { head :ok}
+        format.json { render json: food_type}
       end
     end
   end
