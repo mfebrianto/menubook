@@ -22,7 +22,7 @@ class FoodsController < ActionController::Base
   end
 
   def delete
-    food = Food.find(food_id)
+    food = Food.find(food_id[:id])
     if food.destroy
       respond_to do |format|
         format.json { render json: food}
@@ -37,7 +37,7 @@ class FoodsController < ActionController::Base
   end
 
   def food_id
-    params.require(:id)
+    params.require(:food).permit(:id)
   end
 
   def food_attributes
