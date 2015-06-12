@@ -22,7 +22,7 @@ describe FoodTypesController do
   describe 'destroy' do
     it 'should return with status code' do
       food_type = FoodType.create(name: 'brownie')
-      delete :destroy, {format: :json, id: food_type.id}
+      post :delete, {format: :json, food_type: {id: food_type.id}}
       expect(response.code).to eq '200'
     end
   end

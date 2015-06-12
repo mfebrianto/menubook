@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
   scope "/menubook" do
-    resources :food_types
+    resources :food_types do
+      post :delete, on: :collection
+    end
     resources :foods
   end
 
