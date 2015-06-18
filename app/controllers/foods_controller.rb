@@ -7,9 +7,13 @@ class FoodsController < ActionController::Base
   end
 
   def upload_image
-    food_image = Food.new(food_image: params[:food_image])
-    food_image.save
-    p ">>>>>>>>#{food_image.inspect}"
+    food = Food.find(params[:food_id])
+    food.food_image = params[:food_image]
+    if food.save
+      respond_to do |format|
+        format.json { render json: food}
+      end
+    end
   end
 
   def create
@@ -33,7 +37,7 @@ class FoodsController < ActionController::Base
   private
 
   def food_image
-    params.permit(:food_image)
+    params.permit(:food_image, :id)
   end
 
   def food_id
