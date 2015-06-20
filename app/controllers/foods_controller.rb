@@ -6,10 +6,11 @@ class FoodsController < ActionController::Base
     end
   end
 
-  def upload_image
-    food = Food.find(params[:food_id])
-    food.food_image = params[:food_image]
-    if food.save
+  def update
+    food = Food.find(params[:id])
+    if food.update_attributes(name: params[:name],
+                              description: params[:description],
+                              food_image: params[:food_image])
       respond_to do |format|
         format.json { render json: food}
       end
