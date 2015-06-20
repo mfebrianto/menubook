@@ -2,7 +2,7 @@ class FoodsController < ActionController::Base
 
   def index
     respond_to do |format|
-      format.json { render json: Food.all}
+      format.json { render json: Food.all_with_images}
     end
   end
 
