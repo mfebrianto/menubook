@@ -10,7 +10,8 @@ class FoodsController < ActionController::Base
     food = Food.find(params[:id])
     if food.update_attributes(name: params[:name],
                               description: params[:description],
-                              food_image: params[:food_image])
+                              food_image: params[:food_image],
+                              price: params[:price])
       respond_to do |format|
         format.json { render json: food}
       end
@@ -46,7 +47,7 @@ class FoodsController < ActionController::Base
   end
 
   def food_attributes
-    params.require(:food).permit(:name, :description)
+    params.require(:food).permit(:name, :description, :price)
   end
 
 end

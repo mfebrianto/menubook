@@ -11,6 +11,7 @@ class Food < ActiveRecord::Base
     foods.each do |food|
       all_foods_with_image_url << {id: food.id, name: food.name,
                                    description: food.description,
+                                   price: food.price,
                                    image: food.food_image.url}
     end
     all_foods_with_image_url
