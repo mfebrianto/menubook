@@ -6,6 +6,10 @@ gem 'rails', '4.2.1'
 gem 'mysql2'
 gem 'paperclip', '~> 4.2'
 
+gem 'capistrano', '~> 3.4.0'
+gem 'capistrano-rails', '~> 1.1.3'
+gem 'capistrano-rvm', '~> 0.1.2'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
