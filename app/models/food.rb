@@ -16,4 +16,12 @@ class Food < ActiveRecord::Base
     end
     all_foods_with_image_url
   end
+
+  def self.find_with_images(id)
+    food = self.find(id)
+    {id: food.id, name: food.name,
+     description: food.description,
+     price: food.price,
+     image: food.food_image.url}
+  end
 end

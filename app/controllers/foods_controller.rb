@@ -28,7 +28,7 @@ class FoodsController < ActionController::Base
   end
 
   def show
-    food = Food.find(find_food_id_param)
+    food = Food.find_with_images(find_food_id_param)
     if food.present?
       respond_to do |format|
         format.json { render json: food}
