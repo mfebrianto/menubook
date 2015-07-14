@@ -27,6 +27,15 @@ class FoodsController < ActionController::Base
     end
   end
 
+  def show
+    food = Food.find(find_food_id_param)
+    if food.present?
+      respond_to do |format|
+        format.json { render json: food}
+      end
+    end
+  end
+
   def delete
     food = Food.find(food_id[:id])
     if food.destroy
@@ -40,6 +49,10 @@ class FoodsController < ActionController::Base
 
   def food_image
     params.permit(:food_image, :id)
+  end
+
+  def find_food_id_param
+    params.require(:id)
   end
 
   def food_id
