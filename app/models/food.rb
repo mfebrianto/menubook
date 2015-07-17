@@ -11,7 +11,7 @@ class Food < ActiveRecord::Base
     foods.each do |food|
       all_foods_with_image_url << {id: food.id, name: food.name,
                                    description: food.description,
-                                   price: food.price,
+                                   price: food.price.to_i,
                                    image: food.food_image.url}
     end
     all_foods_with_image_url
@@ -21,7 +21,7 @@ class Food < ActiveRecord::Base
     food = self.find(id)
     {id: food.id, name: food.name,
      description: food.description,
-     price: food.price,
+     price: food.price.to_i,
      image: food.food_image.url}
   end
 end
