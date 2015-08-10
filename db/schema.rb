@@ -16,7 +16,6 @@ ActiveRecord::Schema.define(version: 20150706123459) do
   create_table "food_types", force: :cascade do |t|
     t.string   "name",        limit: 255
     t.string   "description", limit: 255
-    t.string   "string",      limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end

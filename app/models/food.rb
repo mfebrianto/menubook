@@ -2,7 +2,9 @@ class Food < ActiveRecord::Base
 
   belongs_to :food_type
 
-  has_attached_file :food_image, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+  has_attached_file :food_image, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png" ,
+                    :path => ":rails_root/public/menubook/system/:attachment/:id_partition/:style_:basename.:extension",
+                    :url  => "menubook/system/:attachment/:id_partition/:style_:basename.:extension"
   validates_attachment_content_type :food_image, :content_type => /\Aimage\/.*\Z/
 
   def self.all_with_images
