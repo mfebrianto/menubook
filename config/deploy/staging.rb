@@ -7,7 +7,7 @@
 # server 'example.com', user: 'deploy', roles: %w{app web}, other_property: :other_value
 # server 'db.example.com', user: 'deploy', roles: %w{db}
 
-server '106.186.123.15', user: 'f2', roles: [:app, :web, :db], :primary => true, port: 22
+server '139.162.15.221', user: 'f2', roles: [:app, :web, :db], :primary => true, port: 22
 set :deploy_to, '/var/www/menubook'
 
 
