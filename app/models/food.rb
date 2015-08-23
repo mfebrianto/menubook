@@ -24,6 +24,6 @@ class Food < ActiveRecord::Base
     {id: food.id, name: food.name,
      description: food.description,
      price: food.price.to_i,
-     image: food.food_image.url}
+     image: food.food_image.url(:medium)}
   end
 end
