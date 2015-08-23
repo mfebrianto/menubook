@@ -35,4 +35,9 @@ namespace :deploy do
     end
   end
 
+  desc "Symlink shared configs and folders on each release."
+  task :symlink_shared do
+    run "ln -nfs #{shared_path}/menubook #{release_path}/public/menubook"
+  end
+
 end
